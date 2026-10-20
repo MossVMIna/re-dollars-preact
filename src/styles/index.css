@@ -1908,6 +1908,10 @@ html[data-theme="dark"] .chat-textarea {
   user-select: all;
   margin-block: 2px;
 }
+.chat-input-token-smiley-normal,
+.chat-input-token-bmo {
+  vertical-align: text-bottom;
+}
 .chat-input-token img,
 .chat-input-token .bmoji-image {
   display: block;

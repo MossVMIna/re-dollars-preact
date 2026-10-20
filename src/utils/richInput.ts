@@ -52,15 +52,18 @@ function renderRichInputToken(token: ParsedInlineToken): string {
             return buildTokenHTML(token.raw, `<span class="bmo" data-code="${escapeHTML(token.code)}"></span>`, 'chat-input-token-bmo');
         case 'smiley': {
             let className = 'smiley chat-input-inline-smiley';
+            let wrapperClassName = 'chat-input-token-smiley';
             if (token.variant === 'musume') {
                 className += ' smiley-musume chat-input-inline-large';
             } else if (token.variant === 'blake') {
                 className += ' smiley-blake chat-input-inline-large';
+            } else {
+                wrapperClassName += ' chat-input-token-smiley-normal';
             }
 
             const attrs = token.variant === 'bgm' ? ' width="21" height="21"' : '';
             const innerHTML = `<img src="${escapeHTML(token.src)}" class="${className}" alt="${escapeHTML(token.raw)}"${attrs}>`;
-            return buildTokenHTML(token.raw, innerHTML, 'chat-input-token-smiley');
+            return buildTokenHTML(token.raw, innerHTML, wrapperClassName);
         }
     }
 }
